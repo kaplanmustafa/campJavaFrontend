@@ -5,14 +5,14 @@ import ProductService from "../services/productService";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
-  const { name } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     let productService = new ProductService();
-    productService.getProductByName(name).then((result) => {
+    productService.getById(id).then((result) => {
       setProduct(result.data.data);
     });
-  }, [name]);
+  }, [id]);
 
   return (
     <div>
@@ -25,7 +25,9 @@ const ProductDetail = () => {
               src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
             />
             <Card.Header>{product.productName}</Card.Header>
-            <Card.Meta>{product.category.categoryName}</Card.Meta>
+            <Card.Meta>
+              {product.category !== undefined && product.category.categoryName}
+            </Card.Meta>
             <Card.Description>{product.quantityPerUnit}</Card.Description>s
           </Card.Content>
           <Card.Content extra>

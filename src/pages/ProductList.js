@@ -30,9 +30,7 @@ const ProductList = () => {
           {products.map((product) => (
             <Table.Row key={product.id}>
               <Table.Cell>
-                <Link to={`products/${product.productName}`}>
-                  {product.productName}
-                </Link>
+                <Link to={`products/${product.id}`}>{product.productName}</Link>
               </Table.Cell>
               <Table.Cell>{product.unitPrice}</Table.Cell>
               <Table.Cell>{product.unitsInStock}</Table.Cell>

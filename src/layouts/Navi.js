@@ -3,7 +3,7 @@ import { Container, Menu } from "semantic-ui-react";
 import CartSummary from "./CartSummary";
 import SignedOut from "./SignedOut";
 import SignedIn from "./SignedIn";
-import { NavLink, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Navi = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
@@ -23,7 +23,9 @@ const Navi = () => {
     <div>
       <Menu inverted fixed="top">
         <Container>
-          <Menu.Item name="home" as={NavLink} to="/" />
+          <Menu.Item>
+            <Link to="/">Home</Link>
+          </Menu.Item>
           <Menu.Item name="messages" />
 
           <Menu.Menu position="right">
